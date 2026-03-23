@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabil Hamster 🐹 Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-blobs">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">🐹 Sabil Hamster</div>
+      <p class="tagline">The cutest public hamster gallery on the internet</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Upload Card -->
+    <section class="upload-card" id="uploadCard">
+      <div class="upload-icon">📸</div>
+      <h2>Share Your Hamster!</h2>
+      <p>Upload a photo and it'll appear for <strong>everyone</strong> visiting this page.</p>
+
+      <label class="file-label" for="imageInput">
+        <span id="fileLabel">Choose a photo…</span>
+        <input type="file" id="imageInput" accept="image/*" onchange="previewFile(event)" />
+      </label>
+
+      <div class="preview-wrap" id="previewWrap" style="display:none">
+        <img id="previewImg" src="" alt="preview" />
+      </div>
+
+      <input class="caption-input" type="text" id="captionInput" placeholder="Add a caption (optional)" maxlength="80" />
+
+      <button class="upload-btn" id="uploadBtn" onclick="uploadImage()">
+        <span id="btnText">🚀 Upload Now</span>
+        <div class="spinner" id="spinner" style="display:none"></div>
+      </button>
+
+      <p class="note">Images are hosted publicly via Imgur. By uploading you agree to <a href="https://imgur.com/tos" target="_blank">Imgur's ToS</a>.</p>
+    </section>
+
+    <!-- Status Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+      <h2 class="gallery-title">🌟 Community Gallery</h2>
+      <p class="gallery-sub" id="galleryCount">Loading hamsters…</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 🧡 for hamster lovers · Hosted on GitHub Pages</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lb-content" onclick="event.stopPropagation()">
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+      <img id="lbImg" src="" alt="" />
+      <p id="lbCaption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
